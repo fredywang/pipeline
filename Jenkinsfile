@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('SCM') {
       steps {
-        git(url: 'https://github.com/fredywang/SmartSpeaker.git', branch: '*/master')
+        git(url: 'https://github.com/fredywang/SmartSpeaker.git', branch: '*/master', credentialsId: 'GitLab-SSH-KEY')
       }
     }
 
