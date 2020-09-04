@@ -11,6 +11,7 @@ pipeline {
     stage('Build') {
       steps {
         withGradle() {
+          tool 'gradle'
           sh 'gradle clean build'
         }
 
