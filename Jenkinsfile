@@ -5,7 +5,7 @@ pipeline {
         }
     }
   tools {
-        gradle 'gradle' 
+        gradle 'Gradle' 
   }
   stages {
     stage('SCM') {
