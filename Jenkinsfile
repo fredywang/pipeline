@@ -1,6 +1,5 @@
 pipeline {
   agent any
-  tools {gradle 'Gradle'}
   stages {
     stage('SCM') {
       agent any
