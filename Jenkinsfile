@@ -10,7 +10,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        tool 'Gradle6.4-rc-3'
+        tool 'Gradle'
         sh 'gradle clean build'
       }
     }
