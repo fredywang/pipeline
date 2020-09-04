@@ -5,7 +5,7 @@ pipeline {
         }
     }
   tools {
-        gradle 'Gradle' 
+        gradle "Gradle" 
   }
   stages {
     stage('SCM') {
@@ -18,7 +18,7 @@ pipeline {
     stage('Build') {
       steps {
         withGradle() {
-          sh 'gradle clean build'
+          sh "gradle clean build"
         }
 
       }
