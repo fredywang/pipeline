@@ -4,7 +4,7 @@ pipeline {
     stage('SCM') {
       agent any
       steps {
-        git(url: 'https://github.com/fredywang/SmartSpeaker.git', credentialsId: 'GitLab-SSH-KEY', changelog: true)
+        git(url: 'git@github.com:fredywang/SmartSpeaker.git', credentialsId: 'GitLab-SSH-KEY', branch: '*/master')
       }
     }
 
