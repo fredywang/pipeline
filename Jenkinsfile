@@ -12,7 +12,8 @@ pipeline {
       steps {
         tool 'Gradle6.4-rc-3'
         withGradle() {
-          sh 'clean build'
+          tool 'Gradle6.4-rc-3'
+          sh 'gradle clean build'
         }
 
       }
