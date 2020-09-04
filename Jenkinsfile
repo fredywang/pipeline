@@ -1,5 +1,6 @@
 pipeline {
   agent any
+  tool 'Gradle'
   stages {
     stage('SCM') {
       agent any
@@ -10,7 +11,6 @@ pipeline {
 
     stage('Build') {
       steps {
-        tool 'Gradle'
         sh 'gradle clean build'
       }
     }
