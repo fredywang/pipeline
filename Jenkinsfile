@@ -1,37 +1,20 @@
 pipeline {
-  agent {
-        node {
-            label 'master'
+    agent {
+        docker { image 'fredywang/jenkins_build:latest' }
+    }
+    stages {
+        stage('SCM') {
+              steps {
+                git(  url: 'git@github.com:fredywang/SmartSpeaker.git', 
+                        credentialsId: 'GitLab-SSH-KEY', branch: 'master')
+              }
+        }
+        stage('Build') {
+            steps { sh 'gradle clean build'
+            }
+        }
+         stage('deploy'){
+              steps{echo 'deploy'}
         }
     }
-  tools {
-        gradle "Gradle" 
-  }
-  stages {
-    stage('SCM') {
-      agent any
-      steps {
-        git(url: 'git@github.com:fredywang/SmartSpeaker.git', credentialsId: 'GitLab-SSH-KEY', branch: 'master')
-      }
-    }
-
-    stage('Build') {
-      steps {
-        sh "gradle clean build"
-      }
-    }
-
-    stage('Deploy') {
-      steps {
-        echo '......Deploy....'
-      }
-    }
-
-    stage('SmokeTest') {
-      steps {
-        echo 'SmokeTest'
-      }
-    }
-
-  }
 }
